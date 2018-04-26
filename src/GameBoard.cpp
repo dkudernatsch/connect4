@@ -32,7 +32,7 @@ bool game_board::is_full() const {
 }
 
 bool game_board::put_coin(int column, char player) {
-    assert(("Column is to big", column < width));
+    assert(("Column is to big", column < width +1));
     assert(("Column has to be bigger than 0", column >= 1));
     //if line is full return
     if(field[column-1][0] != '.') return false;
@@ -107,4 +107,12 @@ bool game_board::check_win(char p, int x, int y) const {
         || connected_squares(p, x, y, 0, 1) >= 4
         || connected_squares(p, x, y, 1, 1) >= 4
         || connected_squares(p, x, y, 1,-1) >= 4;
+}
+
+size_t game_board::get_width() {
+    return width;
+}
+
+size_t game_board::get_height() {
+    return height;
 }

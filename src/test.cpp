@@ -22,7 +22,7 @@ TEST(GAMEBOARD, CONSTRUCTOR_INIT_FIELD)
             }
             else if (i == 8) {
 
-                ASSERT_EQ(gameboard->field[i][j], j + 49);
+                ASSERT_EQ(gameboard->field[i][j], j + '1');
             }
             else if (j == 5) {
                 ASSERT_EQ(gameboard->field[i][j], i + 49);
@@ -331,6 +331,13 @@ TEST(GAMEBOARD, NO_WIN_DIAGONAL_TOP_BOT)
     EXPECT_TRUE(!win);
 
     delete(gameboard);
+}
+
+
+
+int main(int argc, char** argv){
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
 
 #endif

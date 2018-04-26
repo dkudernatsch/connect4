@@ -8,17 +8,8 @@ add_executable(connect4
         src/GameBoard.cpp src/main.cpp src/HumanPlayer.cpp src/ComputerPlayer.cpp)
 
 ###################################################################
-include(ExternalProject)
-ExternalProject_Add(googletest
-        GIT_REPOSITORY    https://github.com/google/googletest.git
-        GIT_TAG           master
-        SOURCE_DIR        "${CMAKE_BINARY_DIR}/googletest-src"
-        BINARY_DIR        "${CMAKE_BINARY_DIR}/googletest-build"
-        CONFIGURE_COMMAND ""
-        BUILD_COMMAND     ""
-        INSTALL_COMMAND   ""
-        TEST_COMMAND      ""
-        )
+add_subdirectory(googletest/googletest)
+include_directories(${gtest_include_dir})
 
 
 add_executable(tests
@@ -30,5 +21,5 @@ add_executable(tests
 
 set_target_properties(tests PROPERTIES COMPILE_FLAGS -DTESTS)
 
-target_link_libraries(tests gtest gtest_main)
+target_link_libraries(tests gtest)
 add_test(tests tests)

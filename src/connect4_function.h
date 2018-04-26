@@ -9,6 +9,10 @@ public:
     bool put_coin(int column, char player);
     bool win(char player) const;
     void print_board() const;
+
+    size_t get_width();
+    size_t get_height();
+
     const std::vector<std::vector<char>> &getField() const;
 
 #ifdef TESTS
@@ -21,6 +25,7 @@ public:
     bool index_check(int x, int y) const;
     std::size_t width;
     std::size_t height;
+
     std::vector<std::vector<char>> field;
     char won = '\0';
 };

@@ -7,7 +7,9 @@
 
 #ifndef TESTS
 
+#include <time.h>
 int main() {
+    srand(time(0));
     auto gameboard = std::make_unique<game_board>(9, 6);
 
     const auto p1 = std::make_unique<human_player>('H');

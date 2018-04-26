@@ -11,7 +11,7 @@ computer_player::computer_player(const char &name, game_board *spielfeld)
 {}
 
 int computer_player::throw_coin() const {
-    return 1;
+    return (rand() % gameboard->get_width()) + 1;
 }
 
 const char &computer_player::getmName() const {
